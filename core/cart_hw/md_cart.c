@@ -583,7 +583,7 @@ void md_cart_init(void)
   }
 
   /* detect specific mappers */
-  if (strstr(rominfo.consoletype,"SEGA SSF"))
+  if (strstr(rominfo.consoletype,"SEGA SSF") || strstr(rominfo.consoletype,"SEGA DOA"))
   {
     /* Everdrive extended SSF mapper */
     cart.hw.time_w = mapper_512k_w;
