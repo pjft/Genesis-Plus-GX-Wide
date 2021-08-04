@@ -583,7 +583,7 @@ void md_cart_init(void)
   }
 
   /* detect specific mappers */
-  if (strstr(rominfo.consoletype,"SEGA SSF") || strstr(rominfo.consoletype,"SEGA DOA"))
+  if (strstr(rominfo.consoletype,"SEGA SSF"))
   {
     /* Everdrive extended SSF mapper */
     cart.hw.time_w = mapper_512k_w;
@@ -592,6 +592,14 @@ void md_cart_init(void)
     cart.hw.bankshift = 1;
   }
   else if (strstr(rominfo.domestic,"SUPER STREET FIGHTER2"))
+  {
+    /* SSF2 mapper */
+    cart.hw.time_w = mapper_ssf2_w;
+
+    /* cartridge ROM mapping is reinitialized on /VRES */
+    cart.hw.bankshift = 1;
+  }
+  else if (strstr(rominfo.domestic,"DEMONS OF ASTEBORG"))
   {
     /* SSF2 mapper */
     cart.hw.time_w = mapper_ssf2_w;
